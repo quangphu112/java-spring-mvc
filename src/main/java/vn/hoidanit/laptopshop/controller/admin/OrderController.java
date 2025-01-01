@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-public class DashboardController {
-    @GetMapping("/admin")
-    public String getDashboardPage() {
-        return "/admin/dashboard/dashboard";
+public class OrderController {
+    @GetMapping("admin/order")
+    public String getOrderAdminPage() {
+        return "admin/order/order";
     }
 }

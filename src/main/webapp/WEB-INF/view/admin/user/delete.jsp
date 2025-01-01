@@ -31,49 +31,43 @@ uri="http://www.springframework.org/tags/form" %>
         <jsp:include page="../layout/navbar.jsp" />
       </div>
       <div id="layoutSidenav_content">
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-md-6 col-12 mx-auto">
-              <h3>Create a user</h3>
-              <hr />
-              <form:form
-                method="post"
-                action="/admin/user/create"
-                modelAttribute="newUser"
-              >
-                <div class="mb-3">
-                  <label path="email" class="form-label">Email:</label>
-                  <form:input type="email" class="form-control" path="email" />
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">Manage User</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active">
+                <a href="/admin">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item active">User</li>
+            </ol>
+            <div class="container mt-5">
+              <div class="row">
+                <div class="mx-auto">
+                  <h3>Delete user ${id}</h3>
+                  <hr />
+                  <form:form
+                    method="post"
+                    action="/admin/user/delete"
+                    modelAttribute="newUser"
+                  >
+                    <div class="mb-3 d-none">
+                      <label class="form-label">ID:</label>
+                      <form:input
+                        type="text"
+                        class="form-control"
+                        path="id"
+                        value="${id}"
+                      />
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                      Confirm
+                    </button>
+                  </form:form>
                 </div>
-                <div class="mb-3">
-                  <label path="password" class="form-label">Password:</label>
-                  <form:input
-                    type="password"
-                    class="form-control"
-                    path="password"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label path="phone" class="form-label">Phone:</label>
-                  <form:input type="text" class="form-control" path="phone" />
-                </div>
-                <div class="mb-3">
-                  <label path="fullName" class="form-label">FullName:</label>
-                  <form:input
-                    type="text"
-                    class="form-control"
-                    path="fullName"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label path="address" class="form-label">Address:</label>
-                  <form:input type="text" class="form-control" path="address" />
-                </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-              </form:form>
+              </div>
             </div>
           </div>
-        </div>
+        </main>
         <jsp:include page="../layout/footer.jsp" />
       </div>
     </div>

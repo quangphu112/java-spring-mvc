@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@ taglib prefix="c"
-uri="http://java.sun.com/jsp/jstl/core"%> <%@ taglib prefix="form"
-uri="http://www.springframework.org/tags/form" %>
+uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,49 +30,36 @@ uri="http://www.springframework.org/tags/form" %>
         <jsp:include page="../layout/navbar.jsp" />
       </div>
       <div id="layoutSidenav_content">
-        <div class="container mt-5">
-          <div class="row">
-            <div class="col-md-6 col-12 mx-auto">
-              <h3>Create a user</h3>
-              <hr />
-              <form:form
-                method="post"
-                action="/admin/user/create"
-                modelAttribute="newUser"
-              >
-                <div class="mb-3">
-                  <label path="email" class="form-label">Email:</label>
-                  <form:input type="email" class="form-control" path="email" />
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="mt-4">Manage User</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active">
+                <a href="/admin">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item active">User</li>
+            </ol>
+            <div class="container mt-5">
+              <div class="row">
+                <div class="mx-auto">
+                  <h3>Detail user ${user.id}</h3>
+                  <hr />
+                  <div class="card" style="width: 18rem">
+                    <div class="card-header">User information</div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">ID: ${user.id}</li>
+                      <li class="list-group-item">
+                        FullName: ${user.fullName}
+                      </li>
+                      <li class="list-group-item">Email: ${user.email}</li>
+                    </ul>
+                  </div>
+                  <a href="/admin/user" class="btn btn-success">Back</a>
                 </div>
-                <div class="mb-3">
-                  <label path="password" class="form-label">Password:</label>
-                  <form:input
-                    type="password"
-                    class="form-control"
-                    path="password"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label path="phone" class="form-label">Phone:</label>
-                  <form:input type="text" class="form-control" path="phone" />
-                </div>
-                <div class="mb-3">
-                  <label path="fullName" class="form-label">FullName:</label>
-                  <form:input
-                    type="text"
-                    class="form-control"
-                    path="fullName"
-                  />
-                </div>
-                <div class="mb-3">
-                  <label path="address" class="form-label">Address:</label>
-                  <form:input type="text" class="form-control" path="address" />
-                </div>
-                <button type="submit" class="btn btn-primary">Create</button>
-              </form:form>
+              </div>
             </div>
           </div>
-        </div>
+        </main>
         <jsp:include page="../layout/footer.jsp" />
       </div>
     </div>
