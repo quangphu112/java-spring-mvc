@@ -1,24 +1,25 @@
 package vn.hoidanit.laptopshop.model;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    @Column(length = 50, nullable = false, unique = true)
     private String email;
-
     private String password;
     private String fullName;
     private String address;
     private String phone;
+    private String avatar;
+
+    //RoleID
 
     public long getId() {
         return id;
@@ -55,6 +56,12 @@ public class User {
     }
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+    public String getAvatar() {
+        return this.avatar;
+    }
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     @Override
